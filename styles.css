@@ -1,0 +1,35 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Roboto";
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin: 25px 0;
+  font-size: 2.5rem;
+}
+
+p {
+  margin-bottom: 12px;
+}
+
+input {
+  width: 225px;
+  height: 30px;
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+}
+
+button {
+  padding: 8px;
+  font-size: 1.05rem;
+}
