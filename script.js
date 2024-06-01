@@ -14,3 +14,18 @@ let cid = [
   ["TWENTY", 60],
   ["ONE HUNDRED", 100]
 ];
+
+const checkPurchase = () => {
+  const cash = Number(cashInput.value);
+  if (cash < price) {
+    alert("Customer does not have enough money to purchase the item");
+  } else if (cash === price) {
+    changeDue.innerText = "No change due - customer paid with exact cash";
+  } else {
+    returnCash(cash);
+  }
+};
+
+const returnCash = (input) => {};
+
+purchaseBtn.addEventListener("click", checkPurchase);
