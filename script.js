@@ -2,7 +2,7 @@ const changeDue = document.getElementById("change-due");
 const cashInput = document.getElementById("cash");
 const purchaseBtn = document.getElementById("purchase-btn");
 
-let price = 1.87;
+let price = 3.26;
 let cid = [
   ["PENNY", 1.01],
   ["NICKEL", 2.05],
@@ -34,7 +34,31 @@ const checkFunds = (input) => {
   }
   if (totalCid < change) {
     changeDue.innerText = "Status: INSUFFICIENT_FUNDS";
+  } else {
+    checkForChange(change);
   }
+};
+
+const checkForChange = (input) => {
+  let change = input;
+  const cashArray = [0.01, 0.05, 0.1, 0.25, 1, 5, 10, 20, 100];
+  const changeArray = [];
+  for (let i = 9; i >= 0; i--) {
+    if(change / cashArray[i] >= 1) {
+      const requiredUnits = Math.floor(change / cashArray[i]);
+      const availableUnits = cid[i][1] / cashArray[i];
+      if (availableUnits >= requiredUnits) {
+        let requiredAmount = (cashArray[i] * requiredUnits).toFixed(2);
+        change = (change - requiredAmount).toFixed(2);
+        changeArray.push([cid[i][0], requiredAmount]);
+      } else {
+        let availableAmount = (cashArray[i] * availableUnits).toFixed(2);
+        change = (change - availableAmount).toFixed(2);
+        changeArray.push([cid[i][0], availableAmount]);
+      }
+    }
+  }
+  console.log(change, changeArray);
 };
 
 purchaseBtn.addEventListener("click", checkPurchase);
