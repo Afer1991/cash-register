@@ -22,10 +22,19 @@ const checkPurchase = () => {
   } else if (cash === price) {
     changeDue.innerText = "No change due - customer paid with exact cash";
   } else {
-    returnCash(cash);
+    checkFunds(cash);
   }
 };
 
-const returnCash = (input) => {};
+const checkFunds = (input) => {
+  const change = input - price;
+  let totalCid = 0;
+  for (let i = 0; i < cid.length; i++) {
+    totalCid = (totalCid * 100 + cid[i][1] * 100) / 100;
+  }
+  if (totalCid < change) {
+    changeDue.innerText = "Status: INSUFFICIENT_FUNDS";
+  }
+};
 
 purchaseBtn.addEventListener("click", checkPurchase);
