@@ -79,12 +79,16 @@ const returnCash = (input, arr) => {
     if (totalCid === 0) {
       changeDue.innerHTML = "<p>Status: CLOSED</p>";
       for (let i = 8; i >= 0; i--) {
-        changeDue.innerHTML += `<p>${arr[i][0]}: $${arr[i][1]}</p>`;
+        if (arr[i][1] != 0) {
+          changeDue.innerHTML += `<p>${arr[i][0]}: $${arr[i][1]}</p>`;
+        }
       }
     } else {
       changeDue.innerHTML = "<p>Status: OPEN</p>";
       for (let i = 8; i >= 0; i--) {
-        changeDue.innerHTML += `<p>${arr[i][0]}: $${arr[i][1]}</p>`;
+        if (arr[i][1] != 0) {
+          changeDue.innerHTML += `<p>${arr[i][0]}: $${arr[i][1]}</p>`;
+        }
       }
     }
   }
