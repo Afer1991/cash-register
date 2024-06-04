@@ -95,3 +95,8 @@ const returnCash = (input, arr) => {
 };
 
 purchaseBtn.addEventListener("click", checkPurchase);
+cashInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    checkPurchase();
+  }
+});
