@@ -92,7 +92,17 @@ const returnCash = (input, arr) => {
       }
     }
   }
+  displayCid();
 };
+
+const displayCid = () => {
+  for (let i = 1; i <= cid.length; i++) {
+    const currency = document.getElementById(`currency-${i}`);
+    currency.innerText = `$${cid[i - 1][1]}`;
+  }
+};
+
+displayCid();
 
 purchaseBtn.addEventListener("click", checkPurchase);
 cashInput.addEventListener("keydown", (e) => {
