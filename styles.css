@@ -27,6 +27,11 @@ h1 {
   color: var(--text-color);
 }
 
+#change-due > p {
+  color: var(--text-color);
+  margin-bottom: 4px;
+}
+
 body > p {
   margin-bottom: 12px;
   color: var(--text-color);
